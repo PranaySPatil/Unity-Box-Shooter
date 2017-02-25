@@ -14,6 +14,7 @@ public class TargetBehavior : MonoBehaviour
 	// when collided with another gameObject
 	void OnCollisionEnter (Collision newCollision)
 	{
+		Debug.Log ("Target Hit 1");
 		// exit if there is a game manager and the game is over
 		if (GameManager.gm) {
 			if (GameManager.gm.gameIsOver)
@@ -22,6 +23,7 @@ public class TargetBehavior : MonoBehaviour
 
 		// only do stuff if hit by a projectile
 		if (newCollision.gameObject.tag == "Projectile") {
+			Debug.Log ("Target Hit 2");
 			if (explosionPrefab) {
 				// Instantiate an explosion effect at the gameObjects position and rotation
 				Instantiate (explosionPrefab, transform.position, transform.rotation);
